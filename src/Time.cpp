@@ -51,28 +51,44 @@ namespace Time
 	int GetYear()
 	{
 		std::time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-		tm local_tm = *localtime(&t);
+		tm local_tm{};
+		if (localtime_s(&local_tm, &t))
+		{
+			return 0;
+		}
 		return local_tm.tm_year;
 	}
 
 	int GetMonth()
 	{
 		std::time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-		tm local_tm = *localtime(&t);
+		tm local_tm{};
+		if (localtime_s(&local_tm, &t))
+		{
+			return 0;
+		}
 		return local_tm.tm_mon + 1;
 	}
 
 	int GetDay()
 	{
 		std::time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-		tm local_tm = *localtime(&t);
+		tm local_tm{};
+		if (localtime_s(&local_tm, &t))
+		{
+			return 0;
+		}
 		return local_tm.tm_mday;
 	}
 
 	int GetWeekday()
 	{
 		std::time_t t = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-		tm local_tm = *localtime(&t);
+		tm local_tm{};
+		if (localtime_s(&local_tm, &t))
+		{
+			return 0;
+		}
 		return local_tm.tm_wday;
 	}
 }

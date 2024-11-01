@@ -8,7 +8,7 @@
 
 #include "Url.h"
 
-#include "Util/Strings.h"
+#include "Strings.h"
 
 namespace URL
 {

@@ -11,7 +11,7 @@
 #include <Windows.h>
 #include <shellapi.h>
 
-#include "Util/Strings.h"
+#include "Strings.h"
 
 namespace CmdLine
 {
