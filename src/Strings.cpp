@@ -115,6 +115,39 @@ namespace String
 		return Format("%.2f %s", sz, sizes[order]);
 	}
 
+	std::string FormatNumber(int aNumber, char aSeparator)
+	{
+		std::string out;
+
+		char buff[400]{};
+		char* p = &buff[0];
+
+		while (aNumber >= 1000)
+		{
+			if (!out.empty())
+			{
+				out = aSeparator + out;
+			}
+
+			int digits = aNumber % 1000; // get remainder
+
+			snprintf(p, 400, "%03d", digits); // print string padded with zeroes
+
+			out = p + out;
+
+			aNumber /= 1000;
+		}
+
+		if (!out.empty())
+		{
+			out = aSeparator + out;
+		}
+
+		out = std::to_string(aNumber) + out;
+
+		return out;
+	}
+
 	std::string Normalize(const std::string& aString)
 	{
 		std::string ret;
