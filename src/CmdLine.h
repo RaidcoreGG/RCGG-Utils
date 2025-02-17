@@ -9,8 +9,11 @@
 #ifndef CMDLINE_H
 #define CMDLINE_H
 
+#pragma comment(lib, "Shell32.lib")
+
 #include <string>
 #include <vector>
+#include <Windows.h>
 
 ///----------------------------------------------------------------------------------------------------
 /// CmdLine Namespace
