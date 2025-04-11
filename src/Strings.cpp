@@ -182,29 +182,29 @@ namespace String
 		return aString;
 	}
 
-	std::string ToString(const std::wstring& aWstring)
+	std::string ToString(const std::wstring& aWstring, UINT aCodePage)
 	{
 		if (aWstring.empty())
 		{
 			return std::string();
 		}
 
-		int sz = WideCharToMultiByte(CP_ACP, 0, &aWstring[0], (int)aWstring.length(), 0, 0, 0, 0);
+		int sz = WideCharToMultiByte(aCodePage, 0, &aWstring[0], (int)aWstring.length(), 0, 0, 0, 0);
 		std::string str(sz, 0);
-		WideCharToMultiByte(CP_ACP, 0, &aWstring[0], (int)aWstring.length(), &str[0], sz, 0, 0);
+		WideCharToMultiByte(aCodePage, 0, &aWstring[0], (int)aWstring.length(), &str[0], sz, 0, 0);
 		return str;
 	}
 
-	std::wstring ToWString(const std::string& aString)
+	std::wstring ToWString(const std::string& aString, UINT aCodePage)
 	{
 		if (aString.empty())
 		{
 			return std::wstring();
 		}
 
-		int sz = MultiByteToWideChar(CP_ACP, 0, aString.c_str(), (int)aString.length(), 0, 0);
+		int sz = MultiByteToWideChar(aCodePage, 0, aString.c_str(), (int)aString.length(), 0, 0);
 		std::wstring str(sz, 0);
-		MultiByteToWideChar(CP_ACP, 0, aString.c_str(), (int)aString.length(), &str[0], (int)str.length());
+		MultiByteToWideChar(aCodePage, 0, aString.c_str(), (int)aString.length(), &str[0], (int)str.length());
 		return str;
 	}
 

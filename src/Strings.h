@@ -11,6 +11,7 @@
 
 #include <string>
 #include <vector>
+#include <windows.h>
 
 ///----------------------------------------------------------------------------------------------------
 /// String Namespace
@@ -87,13 +88,13 @@ namespace String
 	/// ToString:
 	/// 	Converts a wstring into a string.
 	///----------------------------------------------------------------------------------------------------
-	std::string ToString(const std::wstring& aString);
+	std::string ToString(const std::wstring& aString, UINT aCodePage = CP_UTF8);
 
 	///----------------------------------------------------------------------------------------------------
 	/// ToWString:
 	/// 	Converts a string into a wstring.
 	///----------------------------------------------------------------------------------------------------
-	std::wstring ToWString(const std::string& aString);
+	std::wstring ToWString(const std::string& aString, UINT aCodePage = CP_UTF8);
 
 	///----------------------------------------------------------------------------------------------------
 	/// ConvertMBToUTF8:
