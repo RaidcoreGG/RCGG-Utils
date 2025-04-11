@@ -67,6 +67,12 @@ namespace String
 	std::string FormatNumber(int aNumber, char aSeparator);
 
 	///----------------------------------------------------------------------------------------------------
+	/// FormatNumberDenominated:
+	/// 	Formats a number display string with a denomination.
+	///----------------------------------------------------------------------------------------------------
+	std::string FormatNumberDenominated(float aNumber);
+
+	///----------------------------------------------------------------------------------------------------
 	/// Normalize:
 	/// 	Returns a normalized string.
 	///----------------------------------------------------------------------------------------------------

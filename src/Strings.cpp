@@ -148,6 +148,24 @@ namespace String
 		return out;
 	}
 
+	std::string FormatNumberDenominated(float aNumber)
+	{
+		if (aNumber >= 1000000000)
+		{
+			return String::Format("%.1fB", aNumber / 1000000000);
+		}
+		else if (aNumber >= 1000000)
+		{
+			return String::Format("%.1fM", aNumber / 1000000);
+		}
+		else if (aNumber >= 1000)
+		{
+			return String::Format("%.1fK", aNumber / 1000);
+		}
+
+		return String::Format("%.0f", aNumber);
+	}
+
 	std::string Normalize(const std::string& aString)
 	{
 		std::string ret;
