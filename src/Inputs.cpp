@@ -25,13 +25,13 @@ KeystrokeMessageFlags::KeystrokeMessageFlags(LPARAM aLParam)
 	/* direct assignment is not possible, so we cast and then copy */
 	KeystrokeMessageFlags tmp = *(KeystrokeMessageFlags*)&aLParam;
 
-	RepeatCount			= tmp.RepeatCount;
-	ScanCode			= tmp.ScanCode;
-	ExtendedFlag		= tmp.ExtendedFlag;
-	Reserved			= tmp.Reserved;
-	ContextCode			= tmp.ContextCode;
-	PreviousKeyState	= tmp.PreviousKeyState;
-	TransitionState		= tmp.TransitionState;
+	RepeatCount      = tmp.RepeatCount;
+	ScanCode         = tmp.ScanCode;
+	ExtendedFlag     = tmp.ExtendedFlag;
+	Reserved         = tmp.Reserved;
+	ContextCode      = tmp.ContextCode;
+	PreviousKeyState = tmp.PreviousKeyState;
+	TransitionState  = tmp.TransitionState;
 }
 
 KeystrokeMessageFlags& LParamToKMF(LPARAM& aLParam)
@@ -50,13 +50,13 @@ LPARAM GetKeyMessageLPARAM(unsigned aVKey, bool aIsDown, bool aIsSystem)
 
 	UINT sc = MapVirtualKeyA(aVKey, MAPVK_VK_TO_VSC_EX);
 
-	lp.RepeatCount = 1;
-	lp.ScanCode = LOBYTE(sc);
-	lp.ExtendedFlag = (HIBYTE(sc) == 0xE0 || HIBYTE(sc) == 0xE1) ? 1 : 0;
-	lp.Reserved = 0;
-	lp.ContextCode = 0;//aIsSystem ? 1 : 0;
+	lp.RepeatCount      = 1;
+	lp.ScanCode         = LOBYTE(sc);
+	lp.ExtendedFlag     = (HIBYTE(sc) == 0xE0 || HIBYTE(sc) == 0xE1) ? 1 : 0;
+	lp.Reserved         = 0;
+	lp.ContextCode      = aIsSystem ? 1 : 0;
 	lp.PreviousKeyState = aIsDown ? 0 : 1;
-	lp.TransitionState = aIsDown ? 0 : 1;
+	lp.TransitionState  = aIsDown ? 0 : 1;
 
 	return KMFToLParam(lp);
 }
