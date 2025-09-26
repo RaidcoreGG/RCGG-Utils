@@ -55,7 +55,7 @@ namespace String
 			{
 				parts.push_back(aDelimiter);
 			}
-			initialPos = pos + 1;
+			initialPos = pos + aDelimiter.length();
 
 			pos = aString.find(aDelimiter, initialPos);
 		}
